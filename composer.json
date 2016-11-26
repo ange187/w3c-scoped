@@ -1,0 +1,5 @@
+{
+	"name": "akiyatkin/w3c-scoped",
+	"description": "Хак для прохождения валидатора w3c вместе со style scoped",
+	"license": "GPL3"
+}
