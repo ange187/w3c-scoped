@@ -3,3 +3,5 @@
 ```php
 $html = Scoped::fix($html);
 ```
+
+Подменяет все <style scoped> на <canvas> с javascript возвращающего всё а место. Тег canvas выбра, как самый безобидный для поисковых систем.
