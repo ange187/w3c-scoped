@@ -3,6 +3,6 @@
 	"description": "Хак для прохождения валидатора w3c вместе со style scoped",
 	"license": "GPL3",
 	"autoload": {
-		"psr-4": { "akiyatkin\\w3c\\scoped\\": "" }
+		"psr-4": { "akiyatkin\\w3c-scoped\\": "" }
 	}
 }
