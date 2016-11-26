@@ -1,5 +1,5 @@
 <?php
-namespace akiyatin\w3c\scoped\Scoped;
+namespace akiyatin\w3c\scoped;
 
 class Scoped {
 	public static function fix($html) 
