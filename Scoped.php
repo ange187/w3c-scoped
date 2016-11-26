@@ -11,21 +11,26 @@ class Scoped {
 			$head = '';
 		}
 		$js = '<script>
-			var div=document.getElementById("data-scoped-style");
-			var style=document.createElement("style");
-			style.setAttribute("type", "text/css");
-			style.setAttribute("scoped", "scoped");
-			style.setAttribute("data-w3c-scoped", "true");
-			if (style.styleSheet) {   // IE
-			    style.styleSheet.cssText = def;
-			} else {                // the world
-			    var tt = document.createTextNode(div.innerHTML);
-			    style.appendChild(tt);
-			}
-			div.parentElement.insertBefore(style,div);
-			div.parentElement.removeChild(div);
+			(function(){
+				var divs = document.getElementsByClassName("data-scoped-style");
+				for (var i = 0, l = divs.length; i<l; i++) {
+					var div = divs[i];
+					var style = document.createElement("style");
+					style.setAttribute("type", "text/css");
+					style.setAttribute("scoped", "scoped");
+					style.setAttribute("data-w3c-scoped", "true");
+					if (style.styleSheet) {   // IE
+					    style.styleSheet.cssText = def;
+					} else {                // the world
+					    var tt = document.createTextNode(div.innerHTML);
+					    style.appendChild(tt);
+					}
+					div.parentElement.insertBefore(style,div);
+					div.parentElement.removeChild(div);
+				}
+			})();
 		</script>';
-		$html = str_ireplace('<style scoped>', '<canvas height="0" width="0" id="data-scoped-style">', $html);
+		$html = str_ireplace('<style scoped>', '<canvas height="0" width="0" class="data-scoped-style">', $html);
 		$html = str_ireplace('</style>', '</canvas>'.$js, $html);
 		
 		return $head.$html;
